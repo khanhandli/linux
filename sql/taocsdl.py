@@ -1,13 +1,17 @@
 import sqlite3 as lite
 import sys
 import os
-path = os.path.dirname(__file__) + "csdl2.db"
+path = os.path.dirname(__file__) + "csdl3.db"
 con = lite.connect(path)
 
 with con:
     sql = con.cursor()
     sql.execute(
         "CREATE TABLE SINHVIEN(MASV INT, TENSV TEXT,NAMSINH DATE,GIOITINH CHAR, HOCPHI INT)")
+    sql.execute(
+        "INSERT INTO SINHVIEN VALUES(1, 'Nguyen Nhu Y', '26/6/40','Nam', 123456)")
+    sql.execute(
+        "INSERT INTO SINHVIEN VALUES(2, 'Nguyen Thi B', '26/6/30', 'Nu', 1234567)")
 con.close()
 
 
